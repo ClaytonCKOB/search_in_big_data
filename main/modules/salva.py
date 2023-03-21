@@ -166,7 +166,6 @@ def hashTags(tabela, id, tag):
             tabela[pos] = []
             tabela[pos].append(nova_tag)    #Cria a lista da posição, cria uma nova tag e adiciona o id do jogador ao vetor de ids da tag
         
-
 def mapHashNum(id, tam):
     return id % tam
 
@@ -178,3 +177,10 @@ def mapHash(chave, tam):
         soma += ord(chave[i]) * (p**i)
     return soma % tam
 
+
+if  __name__ == "__main__":
+    Tabela_tags = [None] * 941
+    arquivo = open('main/files/tags.csv', mode='r')
+    tags = csv.reader(arquivo)
+    salvaTags(Tabela_tags, tags)
+    arquivo.close()

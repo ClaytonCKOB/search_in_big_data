@@ -10,8 +10,7 @@ def pesquisaUsuario(Tabela_jogadores, Tabela_usuarios, user_id):
         for i in range(len(Tabela_usuarios[pos])):
             if(Tabela_usuarios[pos][i].id == user_id): #Caso encontre o id do usuário na tabela
                 ordenaAvals(Tabela_usuarios[pos][i].notas)  #Ordena suas avaliações usando Shell Sort
-                encontraJogadores(Tabela_usuarios[pos][i].notas, Tabela_jogadores)
-                return
+                return encontraJogadores(Tabela_usuarios[pos][i].notas, Tabela_jogadores)
         return []
     else:
         return []
@@ -20,7 +19,6 @@ def pesquisaUsuario(Tabela_jogadores, Tabela_usuarios, user_id):
 def encontraJogadores(avals, Tabela_jogadores):
     limite = 0
     response = []
-    print("\n{:<15} {:<40} {:<15} {:<15} {:<15}".format('sofifa_id','name','global_rating', 'count', 'rating'))
 
     #Imprime os 20 jogadores melhores avaliados pelo usuário
     while(limite < len(avals) and limite < 20):
@@ -37,7 +35,7 @@ def encontraJogadores(avals, Tabela_jogadores):
                     response.append({
                         'sofifa_id':player_id,
                         'name': name,
-                        'global_rating': global_ranking,
+                        'global_rating': round(global_ranking, 2),
                         'count': count,
                         'rating': player_rating
                     })
