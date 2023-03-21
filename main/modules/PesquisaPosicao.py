@@ -7,7 +7,6 @@ def pesquisaPosicao(Tabela_jogadores, Tabela_posicoes, posicao, tam):
 
     if(Tabela_posicoes[pos]):   #Caso encontre a o endereço na tabela Hash de posições, percorre a lista no endereço
         response = []
-        print("\n{:<15} {:<50} {:<25} {:<20} {:<15}".format('fifa_id','name','player_position', 'rating', 'count'))
         for i in range(len(Tabela_posicoes[pos])):
             if(Tabela_posicoes[pos][i].posicao == posicao): #Caso encontre a posição
                 ordenaPosicoes(Tabela_posicoes[pos][i].ids, Tabela_jogadores)   #Ordena as avaliações do vetor de ids de jogadores que jogam nessa posição utilizando Shell Sort

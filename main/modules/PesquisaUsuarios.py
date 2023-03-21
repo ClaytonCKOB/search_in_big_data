@@ -39,7 +39,6 @@ def encontraJogadores(avals, Tabela_jogadores):
                         'count': count,
                         'rating': player_rating
                     })
-                    # print("{:<15} {:<40} {:<15.6} {:<15} {:<15}".format(player_id, name, global_ranking, count, player_rating))
         limite += 1
     
     return response

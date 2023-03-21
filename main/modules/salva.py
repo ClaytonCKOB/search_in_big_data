@@ -6,46 +6,33 @@ import time
 
 def abreArquivos(Tabela_jogadores, Tabela_usuarios, Tabela_posicoes, Tabela_tags, tempo_carregamento):
     
-    inicio = time.time()
+    
     arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
     jogadores = csv.reader(arquivo)
     salvaJogadores(Tabela_jogadores, jogadores)
-    arquivo.close()
-    fim = time.time()
-    tempo_carregamento[1] = fim - inicio
     
-    inicio = time.time()
+    # arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
+    # jogadores = csv.reader(arquivo)
+    arquivo.seek(0)
+    salvaPosicoes(Tabela_posicoes, jogadores)
+
+    # arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
+    # nomes = csv.reader(arquivo)
+    arquivo.seek(0)
+    mainNode = loadJogadores(jogadores)
+    arquivo.close()
+
     arquivo = open('main/files/rating.csv', mode='r', encoding="utf8")
     usuarios = csv.reader(arquivo)
     salvaUsuarios(Tabela_jogadores, Tabela_usuarios, usuarios)
     arquivo.close()
-    fim = time.time()
-    tempo_carregamento[2] = fim - inicio
-
-    inicio = time.time()
-    arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
-    jogadores = csv.reader(arquivo)
-    salvaPosicoes(Tabela_posicoes, jogadores)
-    arquivo.close()
-    fim = time.time()
-    tempo_carregamento[3] = fim - inicio
-
-    inicio = time.time()
+    
     arquivo = open('main/files/tags.csv', mode='r', encoding="utf8")
     tags = csv.reader(arquivo)
     salvaTags(Tabela_tags, tags)
     arquivo.close()
-    fim = time.time()
-    tempo_carregamento[4] = fim - inicio
-
-    inicio = time.time()
-    arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
-    nomes = csv.reader(arquivo)
-    mainNode = loadJogadores(nomes)
-    arquivo.close()
-    fim = time.time()
-    tempo_carregamento[5] = fim - inicio
-
+    
+    
     return mainNode
 
 #Percorre o arquivo de jogadores extraindo id, nome e posições

@@ -6,6 +6,7 @@ $(function(){
             url: "loadfiles",
             success: function (response) {
                 console.log(response);
+                $("#load_files").css("display","none");
             },
             error: function (response) {
                 // alert the error if any error occured
@@ -127,6 +128,5 @@ function fillTable(players){
         });
         body += '</tr>';
     });
-    console.log(body);
     $('.response_field >* tbody').html(body);
 }

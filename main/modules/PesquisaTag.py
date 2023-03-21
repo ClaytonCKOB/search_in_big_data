@@ -9,21 +9,16 @@ def pesquisaTag(Tabela_jogadores, Tabela_tags, tags):
     for i in range(len(tags)):  #Procura todas tags recebidas na tabela Hash de tags
         ok = 0
         pos = mapHash(tags[i], Tam_tags)
-        print(pos)
-        print(Tabela_tags)
         if(Tabela_tags[pos]):
             for j in range(len(Tabela_tags[pos])):
-                print(Tabela_tags[pos][j].tag)
                 if(Tabela_tags[pos][j].tag == tags[i]): #Caso encontre a tag, coloca o vetor com os ids dos jogadores que têm essa tag em ids_comTag
                     ids_comTag.append(Tabela_tags[pos][j].ids)
                     ok = 1
 
 
             if(ok == 0):
-                print(f"\nTag '{tags[i]}' não encontrada")
                 return []
         else:
-           print(f"\nTag '{tags[i]}' não encontrada")
            return []
     if(len(ids_comTag) > 1):    #Caso sejam mais de uma tag, extrai os ids em comum entre todas as tags
         ids_comTag = tagsComum(ids_comTag)
@@ -35,7 +30,6 @@ def pesquisaTag(Tabela_jogadores, Tabela_tags, tags):
 
 
 def imprimeJogadores(ids, Tabela_jogadores):
-    # print ("{:<15} {:<50} {:<25} {:<20} {:<15}".format('sofifa_id','name','player_positions', 'rating', 'count'))
     response = []
     for i in range(len(ids)):
         pos = mapHashNum(ids[i], Tam_jogadores) #Busca os ids dos jogadores na tabela Hash de jogadores e imprime suas informações
@@ -53,7 +47,6 @@ def imprimeJogadores(ids, Tabela_jogadores):
                     'rating': round(rating, 2),
                     'count': Tabela_jogadores[pos][j].num
                 })
-                # print ("{:<15} {:<50} {:<25} {:<20} {:<15}".format(Tabela_jogadores[pos][j].fifa_id, Tabela_jogadores[pos][j].nome, ', '.join(Tabela_jogadores[pos][j].posicao), rating, Tabela_jogadores[pos][j].num))  #Imprime a tabela
                 break   
     return response
 
