@@ -16,7 +16,6 @@ $(function(){
 
     $('#search').on('keyup', function(){
         let text = $(this).val();
-        console.log(text);
         if(/^user [0-9]/.test(text)){
             $.ajax({
                 type: 'GET',
@@ -41,7 +40,7 @@ $(function(){
                 type: 'GET',
                 url: "tagsSearch",
                 data: {
-                    "tags": text.replace('user ', '').replace(/[\']/g, '').split(' ')
+                    "tags": JSON.stringify(text.replace('tags ', '').replace(/[\']/g, '').split(' '))
                 },
                 success: function (response) {
                     let players = JSON.parse(response['players']);
@@ -55,12 +54,12 @@ $(function(){
                     alert(response["responseJSON"]["error"]);
                 }
             });
-        }else if(/^top[0-9] /.test(text)){
+        }else if(/^top[0-9]+ /.test(text)){
             let num = parseInt(text.split(' ')[0].replace('top', ''));
-            let pos = text.split(' ')[1];
+            let pos = (text.split(' ')[1]).replace(/[\']/g, '');
             $.ajax({
                 type: 'GET',
-                url: "playerSearch",
+                url: "topSearch",
                 data: {
                     "top": num,
                     'posicao': pos

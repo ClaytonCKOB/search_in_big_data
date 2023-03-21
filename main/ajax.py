@@ -23,15 +23,18 @@ def userSearch(response):
     return JsonResponse({"players": json.dumps(players)})
 
 def tagsSearch(response):
-    tags = response.GET.get('tags') 
-    pesquisaTag(Tabela_jogadores, Tabela_tags, tags)
+    tags = [ x.lower() for x in json.loads(response.GET.get('tags'))]
+    print(tags)
+    players = pesquisaTag(Tabela_jogadores, Tabela_tags, tags)
+    return JsonResponse({"players": json.dumps(players)})
 
 def topSearch(response):
-    tam = response.GET.get('top')
-    posicao = response.GET.get('posicao')
-    tam = int(tam[1])
-    pesquisaPosicao(Tabela_jogadores, Tabela_posicoes, posicao, tam)
-
+    tam = int(response.GET.get('top'))
+    posicao = response.GET.get('posicao').lower()
+    print(tam)
+    print(posicao)
+    players = pesquisaPosicao(Tabela_jogadores, Tabela_posicoes, posicao, tam)
+    return JsonResponse({"players": json.dumps(players)})
 
 def playerSearch(response):
     prefixo = response.GET.get('prefixo').lower()
