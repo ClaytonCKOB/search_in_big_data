@@ -1,11 +1,13 @@
 html,
 body {
     background-color: #2E3137;
+    font-family: 'Sono', sans-serif;
+    font-weight: 400;
 }
 
 main {
     margin: 25px auto;
-    width: 40vw;
+    width: 45vw;
     text-align: center;
     padding: 1%;
     border: 0.5px solid #222;
@@ -18,14 +20,24 @@ main {
 
 .title {
     color: #eee;
-    font-family: sans-serif;
+    font-family: Sono;
     font-size: 36px;
-    font-weight: 600;
+    font-weight: 800;
     margin-top: 30px;
 }
 
 .search_field {
     display: grid;
+}
+span{
+    color:#eee;
+    font-family: Sono;
+    font-size: 1rem;
+}
+
+.response_field{
+    margin-top: 50px;
+    width: 100%;
 }
 
 .search{
@@ -40,6 +52,7 @@ main {
     width: auto;
     height: 60px;
     margin: 15px 0;
+    font-family: 'Sono';
 }
 
 .button {
@@ -54,8 +67,44 @@ main {
     margin-top: 38px;
     text-align: center;
     width: 100%;
+    font-family: 'Sono';
 }
 .button:hover{
     transition: 0.2s;
     background-color: #0296f1;
+}
+
+.timer_container{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: #303245;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #222;
+}
+
+.timer{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+table, td, tr{
+    font-family: 'Sono';
+    font-weight: 400;
+    text-align: center;
+    font-size: 1rem;
+}
+tbody{
+    margin-top: 5px;
+}
+tr{
+    margin-bottom: 15px;
+}
+th{
+    padding: 10px;
 }

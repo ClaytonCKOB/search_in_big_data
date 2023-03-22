@@ -13,7 +13,7 @@ import time, json
 
 def loadFiles(response):
     inicio = time.time()
-    const.mainNode = abreArquivos(Tabela_jogadores, Tabela_usuarios, Tabela_posicoes, Tabela_tags, tempo_carregamento)
+    const.mainNode = abreArquivos(Tabela_jogadores, Tabela_usuarios, Tabela_posicoes, Tabela_tags)
     fim = time.time()
     return JsonResponse({"time": (fim - inicio)/60})
 
@@ -24,15 +24,15 @@ def userSearch(response):
 
 def tagsSearch(response):
     tags = [ x.lower() for x in json.loads(response.GET.get('tags'))]
-    print(tags)
+    # print(tags)
     players = pesquisaTag(Tabela_jogadores, Tabela_tags, tags)
     return JsonResponse({"players": json.dumps(players)})
 
 def topSearch(response):
     tam = int(response.GET.get('top'))
     posicao = response.GET.get('posicao').lower()
-    print(tam)
-    print(posicao)
+    # print(tam)
+    # print(posicao)
     players = pesquisaPosicao(Tabela_jogadores, Tabela_posicoes, posicao, tam)
     return JsonResponse({"players": json.dumps(players)})
 

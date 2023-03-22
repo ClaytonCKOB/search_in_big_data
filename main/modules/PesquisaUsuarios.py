@@ -37,7 +37,7 @@ def encontraJogadores(avals, Tabela_jogadores):
                         'name': name,
                         'global_rating': round(global_ranking, 2),
                         'count': count,
-                        'rating': player_rating
+                        'rating': round(player_rating, 2)
                     })
         limite += 1
     

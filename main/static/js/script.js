@@ -1,12 +1,12 @@
 $(function(){
-
     $('#load_files').on('click', () => {
         $.ajax({
             type: 'GET',
             url: "loadfiles",
             success: function (response) {
-                console.log(response);
+                // console.log(response);
                 $("#load_files").css("display","none");
+                $("#time").html(`<span>${parseFloat(response.time).toFixed(2)}min</span>`);
             },
             error: function (response) {
                 // alert the error if any error occured
@@ -17,6 +17,8 @@ $(function(){
 
     $('#search').on('keyup', function(){
         let text = $(this).val();
+        $('.response_field').css("display", "block");
+
         if(/^user [0-9]/.test(text)){
             $.ajax({
                 type: 'GET',
@@ -96,6 +98,8 @@ $(function(){
                     alert(response["responseJSON"]["error"]);
                 }
             });
+        }else{
+            $('.response_field').css("display", "none");
         }
     });
 });

@@ -1,23 +1,19 @@
 from .classe import *
 from .trie import *
 import csv
-import time
+# import _multiprocessing 
 
+def abreArquivos(Tabela_jogadores, Tabela_usuarios, Tabela_posicoes, Tabela_tags):
+    
+    # pool = _multiprocessing.Poll(processes=3)
 
-def abreArquivos(Tabela_jogadores, Tabela_usuarios, Tabela_posicoes, Tabela_tags, tempo_carregamento):
-    
-    
     arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
     jogadores = csv.reader(arquivo)
     salvaJogadores(Tabela_jogadores, jogadores)
-    
-    # arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
-    # jogadores = csv.reader(arquivo)
+
     arquivo.seek(0)
     salvaPosicoes(Tabela_posicoes, jogadores)
 
-    # arquivo = open('main/files/players.csv', mode='r', encoding="utf8")
-    # nomes = csv.reader(arquivo)
     arquivo.seek(0)
     mainNode = loadJogadores(jogadores)
     arquivo.close()

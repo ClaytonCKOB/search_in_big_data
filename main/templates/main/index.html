@@ -4,15 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Final cpd work, with search in big data. Sofifa query data">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="ClaytonCKOB e Leonardo-Leites">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;800&display=swap" rel="stylesheet">
+
+    
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="{% static 'js/script.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Search in Big Data</title>
 </head>
 <body>
     <main>
-        <h1 class="title">Search in big data</h1>
+        <h1 class="title">Search in Big Data</h1>
         <div class="search_field">
                 <input type="text" id="search" class="search" placeholder="player Ronaldo, id 13431 ...">
                 <button id="load_files" class="button">Load Files</button>
@@ -21,8 +31,12 @@
 
         </div>
         <div class="response_field">
-
+          
         </div>
     </main>
+    <section class="timer_container">
+        <div class="timer" id="time">
+        </div>
+    </section>
 </body>
 </html>

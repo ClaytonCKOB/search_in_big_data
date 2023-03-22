@@ -16,7 +16,7 @@ def pesquisaNome(Tabela_jogadores, trie, prefixo):
 def encontraJogadores(ids, Tabela_jogadores):
     ordenaPosicoes(ids, Tabela_jogadores)
 
-    print ("{:<15} {:<50} {:<25} {:<20} {:<15}".format('sofifa_id','name','player_positions', 'rating', 'count'))
+    # print ("{:<15} {:<50} {:<25} {:<20} {:<15}".format('sofifa_id','name','player_positions', 'rating', 'count'))
     response = []
     #Imprime cada jogador de cada id extraido da árvore trie
     for i in range(len(ids)):
@@ -32,7 +32,7 @@ def encontraJogadores(ids, Tabela_jogadores):
                     'sofifa_id':Tabela_jogadores[pos][j].fifa_id,
                     'name': Tabela_jogadores[pos][j].nome,
                     'player_positions': ', '.join(Tabela_jogadores[pos][j].posicao),
-                    'rating': rating,
+                    'rating': round(rating, 2),
                     'count': Tabela_jogadores[pos][j].num
                 })
                 # print ("{:<15} {:<50} {:<25} {:<20} {:<15}".format(Tabela_jogadores[pos][j].fifa_id, Tabela_jogadores[pos][j].nome, ', '.join(Tabela_jogadores[pos][j].posicao), rating, Tabela_jogadores[pos][j].num))
