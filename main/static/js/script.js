@@ -31,6 +31,8 @@ $(function(){
                     let body = '';
                     if(players.length > 0){
                         fillTable(players);
+                    }else{
+                        $('.response_field >* tbody').html('');
                     }
                 },
                 error: function (response) {
@@ -50,6 +52,8 @@ $(function(){
                     let body = '';
                     if(players.length > 0){
                         fillTable(players);
+                    }else{
+                        $('.response_field >* tbody').html('');
                     }
                 },
                 error: function (response) {
@@ -72,6 +76,8 @@ $(function(){
                     let body = '';
                     if(players.length > 0){
                         fillTable(players);
+                    }else{
+                        $('.response_field >* tbody').html('');
                     }
                 },
                 error: function (response) {
@@ -91,6 +97,8 @@ $(function(){
                     let body = '';
                     if(players.length > 0){
                         fillTable(players);
+                    }else{
+                        $('.response_field >* tbody').html('');
                     }
                 },
                 error: function (response) {
